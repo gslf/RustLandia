@@ -11,15 +11,11 @@
 Experimenting in Rust
 
 
-## CONTENTS
+## Sims - Simulations
 
 ### Conway's Game of Life
-Conway’s Game of Life (Toroidal Grid)
+Conway’s Game of Life on a Toroidal Grid. A live cell with 2 or 3 live neighbors survives. A dead cell with exactly 3 live neighbors becomes alive. Otherwise, the cell dies or stays dead.
 
-**Classic rules:**
-- A live cell with 2 or 3 live neighbors survives.
-- A dead cell with exactly 3 live neighbors becomes alive.
-- Otherwise, the cell dies or stays dead.
-
-**Toroidal topology:**
-The world “wraps” around itself. Neighbors beyond the right edge are on the left edge (and vice versa), and the same for top/bottom. This eliminates hard borders and yields more uniform behavior.
+## Visuals
+### Matrix Rain
+Matrix rain is a cascading stream of glowing Katakana characters, flowing endlessly down the screen like digital rainfall.
