@@ -19,3 +19,6 @@ Conway’s Game of Life on a Toroidal Grid. A live cell with 2 or 3 live neighbo
 ## Visuals
 ### Matrix Rain
 Matrix rain is a cascading stream of glowing Katakana characters, flowing endlessly down the screen like digital rainfall.
+
+### MazeGen
+A tool that generate solvable mazes and then ... solve them and prints them to the console.
