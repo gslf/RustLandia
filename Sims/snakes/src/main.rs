@@ -106,33 +106,35 @@ fn display(grid: &Vec<Vec<char>>) {
 
 fn main() {
     const SNAKES_NUMBER: usize = 40;
-    const WIDTH: usize = 80;
+    const WIDTH: usize = 120;
     const HEIGHT: usize = 30;
     const BODIES: &[char] = &['#', '@', '$', '%', '&'];
 
-    let mut snakes: Vec<Snake> = Vec::new();
-    let mut last_grid: Vec<Vec<char>> = vec![vec![' '; WIDTH]; HEIGHT];
+    loop{
+        let mut snakes: Vec<Snake> = Vec::new();
+        let mut last_grid: Vec<Vec<char>> = vec![vec![' '; WIDTH]; HEIGHT];
 
-    // Init snakes
-    for i in 0..=SNAKES_NUMBER {
-        let sym: char = BODIES[i % BODIES.len()];
-        snakes.push(Snake::new(WIDTH, HEIGHT, sym));
-    }
-
-    // Main loop
-    loop {
-        if snakes.is_empty() {
-            break;
+        // Init snakes
+        for i in 0..=SNAKES_NUMBER {
+            let sym: char = BODIES[i % BODIES.len()];
+            snakes.push(Snake::new(WIDTH, HEIGHT, sym));
         }
 
-        for snake in &mut snakes {
-            snake.step(&last_grid);
-        }
-        snakes.retain(|s| !s.body.is_empty());
+        // Main loop
+        loop {
+            if snakes.len() <= 1 {
+                break;
+            }
 
-        last_grid = generate_grid(WIDTH, HEIGHT, &snakes);
-        display(&last_grid);
-        thread::sleep(Duration::from_millis(100));
+            for snake in &mut snakes {
+                snake.step(&last_grid);
+            }
+            snakes.retain(|s| !s.body.is_empty());
+
+            last_grid = generate_grid(WIDTH, HEIGHT, &snakes);
+            display(&last_grid);
+            thread::sleep(Duration::from_millis(100));
+        }
     }
 }
 
